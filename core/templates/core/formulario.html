@@ -1,0 +1,66 @@
+{% extends "core/base.html" %}
+
+{% block contenido %}
+<br>
+<form action="" id="postulanteFormulario" method="POST">
+        {% csrf_token %}
+        <label for="">Nombre completo:</label>
+        <input type="text"  name="txtnombre" id="txtnombre">
+        <br>       
+        
+        
+        <label for="">Fecha de Nacimiento:</label>
+        <input type="date"   name="txtfecha_nac" id="txtfecha_nac">
+        <br>
+            
+        <label for="">Región:</label>
+        <select  name="cboregion" id="cboregion">
+            <option value="">Seleccionar</option>
+
+            {% for r in region %}
+
+            <option value="{{ r.id }}">{{ r.nombre }} </option>
+            
+            {% endfor %}
+        </select>
+        <br>
+        
+        <label for="">Ciudad:</label>
+        <select  name="cbociudad" id="cbociudad">
+                <option value="">Seleccionar</option>
+
+                {% for c in ciudad %}
+
+                <option value="{{ c.id }}">{{ c.nombre }}</option>
+                
+                {% endfor %}
+        </select>
+        <br>
+        
+        <label for="">Tipo de Vivienda:</label>
+        <select  name="cbotipo_vivienda" id="cbotipo_vivienda">
+                <option value="">Seleccionar</option>
+
+                {% for v in tipo_vivienda  %}
+
+                <option value="{{ v.id }}">{{ v.nombre }}</option>
+                
+                {% endfor %}
+        </select>
+        <br>
+       
+        <label for="">Teléfono de contacto:</label>
+        <input type="text"  name="txttelefono" id="txttelefono">
+        <br>
+        
+        <label for="">Correo electrónico:</label>
+        <input type="text"  name="txtcorreo" id="txtcorreo">
+        <br>
+        <br>
+        <input type="submit" name="btnGuardar" id="btnGuardar" value="Guardar">
+    
+    </form>    
+
+    <h3>{{ mensaje }}</h3>
+{% endblock contenido %}
+

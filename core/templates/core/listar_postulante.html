@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+
+{% block contenido %} 
+
+<h2>Listado de Postulantes</h2>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Fecha Nacimiento</th>
+        <th>Ciudad</th>
+        <th>Region</th>
+        <th>Telefono</th>
+        <th>Email</th>
+        <th>Tipo de Vivienda</th>
+        <th>Opciones</th>
+
+    </tr>
+
+    {% for p in postulante  %}
+    <tr>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.fecha_nac }}</td>
+        <td>{{ p.ciudad.nombre }}</td>
+        <td>{{ p.region.nombre }}</td>
+        <td>{{ p.telefono }}</td>
+        <td>{{ p.email }}</td>        
+        <td>{{ p.tipo_vivienda.nombre }}</td>
+        <td>
+                <a href="{% url 'eliminar_postulante' p.id %}">Eliminar</a>
+                <a href="{% url 'modificar_postulante' p.id %}">Modificar</a>
+        </td>
+        
+
+    </tr>
+    
+    {% endfor %}
+</table>
+
+
+{% if messages %}
+
+    {% for p in messages %}
+
+    <div>{{ p }}</div>
+    
+    {% endfor %}
+
+{% endif %}
+
+
+{% endblock contenido %}

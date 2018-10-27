@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mis perris</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script src="{% static 'core/js/landing.js'%}"></script>
+    
+</head>
+<body>
+    
+   <header>
+       <img class="logo" src="{% static 'core/img/logo.png'%}" alt="logo">
+       <ul class="navegacion">
+            <li>
+                    <a href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li>
+                    <a href="http://www.google.com">¿Quienes somos?</a>
+                </li>
+                <li>
+                    <a href="http://www.google.cl">Servicios</a>
+                </li>
+                <li>
+                    <a href="http://www.google.cl">Contáctanos</a>
+                </li>
+                <li>
+                        <a href="{% url 'formulario' %}">Formulario</a>
+                </li>
+                <li><a href="{% url 'galeria' %}"> Galeria</a></li>
+                 {% if request.user.is_authenticated %}
+               <li>
+                   <a href="{% url 'logout' %}">Cerrar sesion</a>
+               </li>
+               <li>
+                    <a href="{% url 'formulario_m' %}">Adm Mascotas</a>
+                </li>
+               {% else %}
+               
+               <li>
+                   <a href="{% url 'login' %}">Iniciar Sesión</a>
+               </li>
+               
+    
+               {% endif %}
+       </ul>
+    </header>
+    <div class="landing">
+        <div class="slider">
+            <div>
+                <img title="Apolo feliz con su nueva familia " class="imagen_landing" src="{% static 'core/img/adoptados/Apolo.jpg' %}" alt="Apolo">   
+            </div>
+            <div>
+                <img title="Duque llego a nuestra familia y es muy fiel y cariñoso" class="imagen_landing" src="{% static 'core/img/adoptados/Duque.jpg' %}" alt="Duque">   
+            </div>
+            <div>
+                <img title="Tom se divierte mucho ahora que lo adopto una familia" class="imagen_landing" src="{% static 'core/img/adoptados/Tom.jpg' %}" alt="Tom">   
+            </div>     
+        </div>
+       
+        <div class="landing_inferior">
+            <h1 class="color_blanco centrar_texto">+56 9 78982764</h1>
+            <h1 class="color_blanco centrar_texto">Adopcion de perros abandonados</h1>
+            <ul class="social">            
+                    <li><img src="{% static 'core/img/socialfacebook.png' %}" alt="facebook"></li>
+                    <li><img src="{% static 'core/img/socialplus.png' %}" alt="plus"></li>
+                    <li><img src="{% static 'core/img/social-inst.png' %}" alt="instagram"></li>
+                    <li><img src="{% static 'core/img/correo.png' %}" alt="mail"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contenido">
+
+        {% block contenido %}
+        
+        {% endblock contenido %}}
+        
+    </div>
+    <br><br><br>
+         
+
+    <footer>
+        <h3>Desarrollo Web y Mobile</h3>
+        
+    </footer>
+ 
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+
+{% block contenido %}
+{% load static %}
+    <div class="lateral">
+        <h3 align="right">RESCATE</h3>
+        <h6 align="right">ETAPA UNO</h6>
+        <br>
+        <hr class="lineaIzq">
+        <br>
+        <p align="right">Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y
+            los preparamos para buscarles un nuevo hogar.
+        </p>
+        <br>
+        <img class="rescate" src="{% static 'core/img/rescate.jpg' %}" alt="rescate">           
+    </div>
+    <div class="principal">
+        <img class="crowfunding" src="{% static 'core/img/crowfunding.jpg' %}"alt="comida">
+        <h3>CROWFUNDING</h3>
+        <H4>FINANCIAMIENTO</H4>
+        <br>
+        <hr class="lineaDer">
+        <br>
+        <p>Sigue nuestras redes sociales para informarte 
+            acerca de las diversas campañas y actividades que realizaremos
+            para obtener financiamiento para seguir ayudando
+        </p>
+        <br>
+
+            <button class="button2">CAMPAÑAS</button>
+
+{% endblock contenido %}
